@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+*{
+	
+	font-family: "Muli", sans-serif; 
+	/*background-color: #f2f2f2;*/
+}
+p{
+	/*background-color: #fff;*/
+	color:black;
+}
+.site-content-contain, .site-footer{
+	background-color: #ffffff;
+}
+.site-main,#secondary{
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	animation-name: example;
+    animation-duration: 8s;
+}
+@keyframes example {
+  from {background-color: #f2f2fe;}
+  to {background-color: #fff;}
+}
+.site-content{
+	animation: animated bounce;
+	background-color: #f2f2f2;
+}
+.site-header{
+	background-color: #e6e6e6;
+}
+.misha_loadmore{
+	background-color: #ddd;
+	border-radius: 2px;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	letter-spacing:1px;
+	cursor:pointer;
+	text-transform: uppercase;
+	padding: 10px 0;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;  
+}
+.misha_loadmore:hover{
+	background-color: #767676;
+	color: #fff;
+}
+
