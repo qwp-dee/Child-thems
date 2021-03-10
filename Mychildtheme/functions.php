@@ -13,6 +13,8 @@ define('CHI_THEME_VERSION', '1.0');
 define('CHI_SITE_URL', SITE_URL());
 define('CHI_FUNCTION_DIR', CHI_THEME_DIR.'/functions');
 define('CHI_CPT_DIR', CHI_THEME_DIR.'/cpt');
+define('CHI_LOGIN_DIR', CHI_THEME_DIR.'/login');
+
 
 // Load theme files
 require_once(CHI_CPT_DIR.'/woo-widgets.php');
@@ -26,8 +28,30 @@ require_once(CHI_FUNCTION_DIR.'/theme-action.php');
 // Metabox for post 
 require_once(CHI_FUNCTION_DIR.'/wpmediaMetabox.php');
 
-
+/*Load post type and post listing files*/
 require_once(CHI_FUNCTION_DIR.'/post-listing.php');
+
+/*Load custom login files*/
+require_once(CHI_LOGIN_DIR.'/login.php');
+
+/*Load custom registration files*/
+require_once(CHI_LOGIN_DIR.'/registration.php');
+
+/* Load custom login rest api files*/
+require_once(CHI_LOGIN_DIR.'/login-rest-api.php');
+
+/*Load forgate passowrd type file*/
+require_once(CHI_LOGIN_DIR.'/login-email-otp.php');
+
+/*Load login with email otp*/
+require_once(CHI_LOGIN_DIR.'/login-email-otp-api.php');
+
+/*Change password api*/
+require_once(CHI_LOGIN_DIR.'/change_password_api.php');
+
+
+
+
 
 /*Date : 28-Dec-2020*/
 
