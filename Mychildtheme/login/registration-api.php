@@ -2,12 +2,8 @@
 /*Custom Registration  api*/
 add_action( 'rest_api_init', 'users_registration_api' );
 	function users_registration_api() {
-	  register_rest_route(
-						   'users', '/registration/',       
-						    array(
-						      'methods'  => 'POST',
-						      'callback' => 'users_registration_custom_api'		
-						 ));
+	  register_rest_route('users', '/registration/',       
+			 array( 'methods'  => 'POST','callback' => 'users_registration_custom_api'));		   
 	}	
 
  function users_registration_custom_api($request){				
@@ -56,8 +52,7 @@ add_action( 'rest_api_init', 'users_registration_api' );
             'message' => 'Registartion Failed'];
     }
         
-        
-        
+              
 if (is_wp_error($user)) {
 	return new WP_Error('user_not_exists', $response_message);
 }
