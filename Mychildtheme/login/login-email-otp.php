@@ -1,7 +1,7 @@
 <?php
 
  
-function yh_send_a_custom_email_example( $user_id ) {
+function send_a_custom_email_fn( $user_id ) {
 	//Get user email from their WordPress user ID.
 	$user = get_user_by( 'ID', $user_id );
 	$email = $user->user_email;
@@ -13,6 +13,6 @@ function yh_send_a_custom_email_example( $user_id ) {
 
 	wp_mail( $email, $subject, $message, $headers );
 }
-add_action( 'wp_zapier_after_create_user', 'yh_send_a_custom_email_example', 10, 1 );
+add_action( 'after_create_user', 'send_a_custom_email_fn', 10, 1 );
 
 ?>
