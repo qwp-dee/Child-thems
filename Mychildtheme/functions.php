@@ -55,12 +55,12 @@ require_once(CHI_LOGIN_DIR.'/change_password_api.php');
 
 /*Date : 28-Dec-2020*/
 
-function wpshout_filter_example( $title ) {
+function filter_example( $title ) {
     $upper = strtoupper($title);
     return $upper;
     // return 'Hooked: ' . $title;
 }
-add_filter( 'the_title', 'wpshout_filter_example' );
+add_filter( 'the_title', 'filter_example' );
 
 function content_uppercase($content){
     $word= wordwrap($content,55,"<br>\n");
@@ -68,12 +68,10 @@ function content_uppercase($content){
 }
 add_filter('the_content','content_uppercase');
 
-function wpshout_action_example( ) {
+function action_example( ) {
     echo '<div style="text-align: center; padding:20px;">WPShout was here.</div>';
 }
-add_action( 'wp_footer', 'wpshout_action_example' );
-
-
+add_action( 'wp_footer', 'action_example' );
 
 
 
@@ -94,11 +92,6 @@ $wpdb->query(
       )
    )
 );
-
-
-
-
-
 
 
 
