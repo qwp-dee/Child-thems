@@ -3,7 +3,7 @@
 add_action('rest_api_init', 'register_api_for_email_with_otp');
 function register_api_for_email_with_otp()
 {
-    register_rest_route('email', '/otp/', //endpoint url : https://webbygenius.com/deepak/wp-json/email/otp/
+    register_rest_route('email', '/otp/', //endpoint url : https://yoursite.com/deepak/wp-json/email/otp/
     array(
         'methods' => 'POST',
         'callback' => 'login_with_email_otp',
