@@ -4,7 +4,7 @@
 */
 add_action('rest_api_init', 'change_password_api');
 function change_password_api() {
-    /* url : https://webbygenius.com/deepak/wp-json/change/password/ */
+    /* url : https://yoursite.com/deepak/wp-json/change/password/ */
     register_rest_route('change', '/password/', 
     array('methods' => 'POST', 'callback' => 'password_changed_api',));
 }
