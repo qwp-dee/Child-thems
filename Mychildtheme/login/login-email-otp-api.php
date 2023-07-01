@@ -37,7 +37,7 @@ function login_with_email_otp($request)
         'message' => 'otp send successfully !', 'email-otp' => $msg_emial_otp];
 
         /*Send otp via mail */
-        $mag = '<p>Welcome to <strong>https://webbygenius.com/deepak/</strong> your verification OTP is : '. $msg_emial_otp . ' </p>';
+        $mag = '<p>Welcome to <strong>https://yoursite.com/deepak/</strong> your verification OTP is : '. $msg_emial_otp . ' </p>';
         wp_mail($user_email, 'OTP login verification', $msg);
 
     }
@@ -61,7 +61,7 @@ add_action('rest_api_init', 'compare_api_for_email_with_otp');
 
 function compare_api_for_email_with_otp()
 {
-  register_rest_route('compare/email', '/otp/', //endpoint url : https://webbygenius.com/deepak/wp-json/compare/email/otp/
+  register_rest_route('compare/email', '/otp/', //endpoint url : https://yoursite.com/deepak/wp-json/compare/email/otp/
     array(
         'methods' => 'POST',
         'callback' => 'compare_otp_with_email'
