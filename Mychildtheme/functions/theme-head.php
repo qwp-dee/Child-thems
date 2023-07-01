@@ -43,11 +43,11 @@ add_action( 'wp_enqueue_scripts', 'Mychildtheme_enqueue_child_styles' );
 
 
 
-function misha_my_load_more_scripts() {
+function my_load_more_scripts() {
 	global $wp_query; 
 	// In most cases it is already included on the page and this line can be removed
 	wp_enqueue_script('jquery');
-	// register our main script but do not enqueue it yet
+	//Register our main script but do not enqueue it yet
 	wp_register_script( 'my_loadmore', CHI_THEME_URI . '/ajax/script.js', array('jquery') );
 	wp_localize_script( 'my_loadmore', 'misha_loadmore_params', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
@@ -58,25 +58,7 @@ function misha_my_load_more_scripts() {
  
  	wp_enqueue_script( 'my_loadmore' );
 }
-add_action( 'wp_enqueue_scripts', 'misha_my_load_more_scripts' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_action( 'wp_enqueue_scripts', 'my_load_more_scripts' );
 
 
 
@@ -87,10 +69,8 @@ add_action( 'wp_enqueue_scripts', 'misha_my_load_more_scripts' );
 
 /* add_action( 'wp_footer', 'my_action_javascript' ); // Write our JS below here
 function my_action_javascript() {
-
-	 wp_enqueue_script('load_more', CHI_THEME_URI . '/ajax/load-more.js', array('jquery'), 1.1 ,true );
-	 wp_localize_script('load_more', 'my_action', array( 'Ajax_Url' => admin_url( 'admin-ajax.php' )) );
-
+	wp_enqueue_script('load_more', CHI_THEME_URI . '/ajax/load-more.js', array('jquery'), 1.1 ,true );
+	wp_localize_script('load_more', 'my_action', array( 'Ajax_Url' => admin_url( 'admin-ajax.php' )) );
 }*/
 
 // add_action( 'wp_enqueue_scripts', 'my_enqueue' );
@@ -108,7 +88,7 @@ add_action( 'wp_ajax_my_action', 'my_action' );
 function my_action() {
 	
 	$args  = array('post_type' => 'post',
-			   		   'paged'=>$_POST['page'],
+		 'paged'=>$_POST['page'],
 			   		  );
 	$the_query = new WP_Query( $args );
 		// the query
@@ -159,7 +139,7 @@ add_action( 'wp_ajax_my_action', 'my_action' );
 function my_action() {
 	
 	$args  = array('post_type' => 'post',
-			   		   'paged'=>$_POST['page'],
+	'paged'=>$_POST['page'],
 			   		  );
 	$the_query = new WP_Query( $args );
 		// the query
@@ -182,7 +162,7 @@ function my_action() {
 
 
 
-function wpdocs_excerpt_more( $more ) {
+function excerpt_more( $more ) {
     return '<a href="'.get_the_permalink().'" rel="nofollow">Read More...</a>';
 }
-add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+add_filter( 'excerpt_more', 'excerpt_more' );
